@@ -32,7 +32,9 @@ g = dict()
 
 # mongo
 #mongo_client = MongoClient('mongodb://localhost:27017/')
-mongo_client = MongoClient("mongodb+srv://admin:admin@tweets.8ugzv.mongodb.net/tweets?retryWrites=true&w=majority")
+
+mongo_client = MongoClient("mongodb+srv://Jaeline:NeuMay2022@projectdatabase.p8qek.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+#mongo_client = MongoClient("mongodb+srv://admin:admin@tweets.8ugzv.mongodb.net/tweets?retryWrites=true&w=majority")
 
 app = Flask(__name__)
 CORS(app)
@@ -58,13 +60,13 @@ def set_env_var():
     if 'refresh_token_expiration' not in g:
         g['refresh_token_expiration'] = os.environ.get("REFRESH_TOKEN_EXPIRATION", 2592000)
     if 'users' not in g:
-        users = os.environ.get("USERS", 'Elon Musk,Bill Gates,Jeff Bezos')
+        users = os.environ.get("USERS", 'Elon Musk,Bill Gates,Jeff Bezos,Jaeline')
         print('users=', users)
         print('g.users=', list(users.split(',')))
         g['users'] = list(users.split(','))
         print('g.users=', g['users'])
     if 'passwords' not in g:
-        passwords = os.environ.get("PASSWORDS", 'Tesla,Clippy,Blue Horizon')
+        passwords = os.environ.get("PASSWORDS", 'Tesla,Clippy,Blue Horizon,NeuMay2022')
         g['passwords'] = list(passwords.split(','))
         print("g['passwords']=", g['passwords'])
         # Once hashed, the value is irreversible. However in the case of 
@@ -290,7 +292,8 @@ def atlas_connect():
     # });
 
     # Python
-    client = pymongo.MongoClient("mongodb+srv://admin:<password>@tweets.8ugzv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    client = pymongo.MongoClient("mongodb+srv://Jaeline:NeuMay2022@projectdatabase.p8qek.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    #client = pymongo.MongoClient("mongodb+srv://admin:<password>@tweets.8ugzv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
     db = client.test
 
 

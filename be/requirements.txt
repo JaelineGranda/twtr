@@ -10,4 +10,3 @@ PyJWT
 python-dateutil
 pytz
 dnspython
-Werkzeug~=2.0.0

@@ -131,20 +131,26 @@ const SignIn = () => {
     //fetch(`login`, config)
       .then(response => response.json())
       .then(data => {
+        if (data[0].access_token !== undefined) {
+          // save to local storage
+          console.log("testingggg")
+          console.log("received these keys in return:")
+          console.log(data);
+          console.log(data[0].access_token);
+          console.log(data[0].refresh_token);
+          console.log('---');
+          saveAuthorisation({
+            access: data[0].access_token,
+            refresh: data[0].refresh_token,
+          });
 
-        // save to local storage
-        console.log("received these keys in return:")
-        console.log(data);
-        console.log(data[0].access_token);
-        console.log(data[0].refresh_token);
-        console.log('---');
-        saveAuthorisation({
-          access: data[0].access_token,
-          refresh: data[0].refresh_token,
-        });
-
-        // back to landing page!
-        history.push("/");
+          // back to landing page!
+          history.push("/");
+        }
+        else {
+          alert("You have entered an invalid username or password");
+          history.push("/signin");
+        }
       })
       .catch( (err) => {
         alert(err);

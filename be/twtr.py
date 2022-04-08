@@ -33,7 +33,7 @@ g = dict()
 # mongo
 #mongo_client = MongoClient('mongodb://localhost:27017/')
 
-mongo_client = MongoClient("mongodb+srv://Jaeline:NeuMay2022@projectdatabase.p8qek.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+mongo_client = MongoClient("mongodb+srv://Jaeline:NeuMay2022@projectdatabase.p8qek.mongodb.net/tweets?retryWrites=true&w=majority")
 #mongo_client = MongoClient("mongodb+srv://admin:admin@tweets.8ugzv.mongodb.net/tweets?retryWrites=true&w=majority")
 
 app = Flask(__name__)
@@ -292,8 +292,8 @@ def atlas_connect():
     # });
 
     # Python
-    #client = pymongo.MongoClient("mongodb+srv://Jaeline:NeuMay2022@projectdatabase.p8qek.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-    client = pymongo.MongoClient("mongodb+srv://admin:<password>@tweets.8ugzv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    client = pymongo.MongoClient("mongodb+srv://Jaeline:<password>@projectdatabase.p8qek.mongodb.net/tweets?retryWrites=true&w=majority")
+    #client = pymongo.MongoClient("mongodb+srv://admin:<password>@tweets.8ugzv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
     db = client.test
 
 
